@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.14
+    working_directory: /go/src/github.com/TicketsBot/translationgenerator
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-pkg-cache
+
+      - run: go build cmd/translationgenerator/main.go
+
+      - store_artifacts:
+          path: /go/src/github.com/TicketsBot/translationgenerator/main
+          destination: main
