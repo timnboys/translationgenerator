@@ -7,9 +7,24 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Tickets Translation</a>
+      <button type="button" class="btn btn-info" onclick="loadFile();">Upload existing translations</button>
+      <input id="file-input" type="file" name="name" style="display: none;" />
     </nav>
 
-    <div class="container" style="padding-top: 20px">
+    <div class="container" style="padding-top: 20px; padding-bottom: 100px">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-info" role="alert">
+            Please refer to <a href="https://github.com/TicketsBot/database/blob/master/translations/messageid.go">this file</a>: it contains all the English translations, as well as information regarding placeholders, etc.
+          </div>
+          <div class="alert alert-info" role="alert">
+            <code>\n</code> can be used for line breaks. When using placeholders, copy from the file above. Generally, <code>%s</code> is a string and <code>%d</code> is an integer.
+            <br>
+            For example, <code><@%d></code> can be used to mention a user (but only if the message supports it!)
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-12">
           <form method="post" action="/json">
@@ -25,5 +40,38 @@
         </div>
       </div>
     </div>
+
+    <script>
+      function loadFile() {
+          document.getElementById('file-input').click();
+      }
+
+      document.getElementById('file-input').addEventListener('change', handleUpload, false);
+
+      function handleUpload() {
+          if (this.files.length > 0) {
+              const upload = this.files[0];
+
+              const reader = new FileReader();
+              reader.readAsText(upload, 'UTF-8');
+
+              reader.onload = (e) => {
+                  const raw = e.target.result;
+                  const parsed = JSON.parse(raw);
+                  fill(parsed);
+              }
+
+              reader.onerror = (e) => {
+                  alert(e);
+              }
+          }
+      }
+
+      function fill(data) {
+          for (translation of data) {
+              document.getElementsByName(translation.id)[0].value = translation.value;
+          }
+      }
+    </script>
   </body>
 </html>

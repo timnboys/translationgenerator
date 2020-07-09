@@ -3,6 +3,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/TicketsBot/database v0.0.0-20200708121851-08f2e7582b28 h1:amEAS7Khz5fkx502Y6O2oi62KvqiRPw6/Cn1yUzd21I=
 github.com/TicketsBot/database v0.0.0-20200709101220-d2de1c579dce h1:5qnfKBwWOdAizBAX2bpRUP8sSUKuYrQxzBcA2mOB0Mk=
 github.com/TicketsBot/database v0.0.0-20200709101220-d2de1c579dce/go.mod h1:eky4tBL+IZ0svPgTT0N/9i6j7ygHDQH3784DW+HgfcA=
+github.com/TicketsBot/database v0.0.0-20200709214727-604cb9b02d1e h1:F07/dIzaeqrzxbNln5STnAsQlFkKHdPThCGFBG9GTn0=
+github.com/TicketsBot/database v0.0.0-20200709214727-604cb9b02d1e/go.mod h1:eky4tBL+IZ0svPgTT0N/9i6j7ygHDQH3784DW+HgfcA=
 github.com/cockroachdb/apd v1.1.0/go.mod h1:8Sl8LxpKi29FqWXR16WEFZRNSz3SoPzUzeMeY4+DwBQ=
 github.com/coreos/go-systemd v0.0.0-20190321100706-95778dfbb74e/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
 github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f/go.mod h1:F5haX7vjVVG0kc13fIWeqUViNPyEJxv/OmvnBo0Yme4=
