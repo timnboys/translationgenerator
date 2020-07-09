@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tickets Translation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Tickets Translation</a>
+    </nav>
+
+    <div class="container" style="padding-top: 20px">
+      <div class="row">
+        <div class="col-md-12">
+          <form method="post" action="/json">
+            {{range $name, $id := .messages}}
+              <div class="form-group">
+                <label for="{{ $id }}">{{ $name }}</label>
+                <input class="form-control" name="{{ $id }}">
+              </div>
+            {{end}}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
