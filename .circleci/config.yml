@@ -13,12 +13,12 @@ jobs:
             - v1-pkg-cache
 
       - run:
-        name: Build i18n platform
-        command: go build -o i18n cmd/translationgenerator/main.go
+          name: Build i18n platform
+          command: go build -o i18n cmd/translationgenerator/main.go
 
       - run:
-        name: Build importer
-        command: go build -o importer cmd/importer/main.go
+          name: Build importer
+          command: go build -o importer cmd/importer/main.go
 
       - store_artifacts:
           path: /go/src/github.com/TicketsBot/translationgenerator/i18n
