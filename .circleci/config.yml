@@ -18,7 +18,7 @@ jobs:
 
       - run:
           name: Build importer
-          command: go build -o importer cmd/importer/main.go
+          command: go build -o importer cmd/import/main.go
 
       - store_artifacts:
           path: /go/src/github.com/TicketsBot/translationgenerator/i18n
