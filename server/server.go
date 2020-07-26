@@ -1,19 +1,17 @@
 package server
 
 import (
-	"github.com/TicketsBot/translationgenerator/config"
 	"github.com/TicketsBot/translationgenerator/server/endpoints"
 	"github.com/gin-gonic/gin"
+	"os"
 )
 
 type Server struct {
-	config config.Config
 	router *gin.Engine
 }
 
-func NewServer(config config.Config) *Server {
+func NewServer() *Server {
 	return &Server{
-		config: config,
 		router: gin.Default(),
 	}
 }
@@ -26,7 +24,7 @@ func (s *Server) ConfigureEngine() {
 }
 
 func (s *Server) Start() {
-	if err := s.router.Run(s.config.Server.Host); err != nil {
+	if err := s.router.Run(os.Getenv("SERVER_ADDR")); err != nil {
 		panic(err)
 	}
 }
