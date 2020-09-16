@@ -28,10 +28,11 @@
       <div class="row">
         <div class="col-md-12">
           <form method="post" action="/json">
+            {{- $root := . -}}
             {{range $name, $id := .messages}}
               <div class="form-group">
                 <label for="{{ $id }}">{{ $name }}</label>
-                <input class="form-control" name="{{ $id }}">
+                <input class="form-control" name="{{ $id }}" value="{{ index $root.english $id }}">
               </div>
             {{end}}
 

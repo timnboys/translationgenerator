@@ -7,3 +7,5 @@ require (
 	github.com/TicketsBot/database v0.0.0-20200710191148-306959ba00d2
 	github.com/gin-gonic/gin v1.6.3
 )
+
+replace github.com/TicketsBot/database => ../database
