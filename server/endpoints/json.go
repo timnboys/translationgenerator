@@ -1,9 +1,11 @@
 package endpoints
 
 import (
+	"encoding/json"
 	database "github.com/TicketsBot/database/translations"
 	"github.com/gin-gonic/gin"
 	"strconv"
+	"strings"
 )
 
 type Translation struct {
@@ -23,6 +25,16 @@ func JsonHandler(ctx *gin.Context) {
 		})
 	}
 
+	jsonRaw, err := json.MarshalIndent(translations, "", "    ")
+	if err != nil {
+		panic(err)
+	}
+
+	json := string(jsonRaw)
+	json = strings.Replace(json, "\\u003c", "<", -1)
+	json = strings.Replace(json, "\\u003e", ">", -1)
+	json = strings.Replace(json, "\\u0026", "&", -1)
+
 	ctx.Header("Content-Disposition", "attachment; filename=translations.json")
-	ctx.JSON(200, translations)
+	ctx.Data(200, "application/json", []byte(json))
 }
