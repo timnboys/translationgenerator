@@ -1,4 +1,4 @@
-module github.com/TicketsBot/translationgenerator
+module github.com/timnboys/translationgenerator
 
 go 1.13
 
